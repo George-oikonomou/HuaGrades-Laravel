@@ -1,0 +1,316 @@
+/* ================================
+   Base Theme & Utility Classes
+=================================== */
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #1f2937;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.text-primary  { color: #11111c; }
+.text-white    { color: #ffffff; }
+.text-center   { text-align: center; }
+.d-none        { display: none !important; }
+
+.mt-4 { margin-top: 1rem; }
+.mt-5 { margin-top: 2rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.p-2  { padding: 0.5rem; }
+.p-4  { padding: 2rem; }
+.rounded { border-radius: 1rem; }
+
+.container-center {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* ================================
+   Card Components
+=================================== */
+.card {
+    border: none !important;
+    border-radius: 1rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(28, 28, 40, 0.9), rgba(16, 16, 24, 0.9));
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, margin 0.3s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-6px);
+    margin-top: 4px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================
+   Selector Header / Hero Panel
+=================================== */
+.bg-dark-gradient {
+    background: linear-gradient(135deg, #11111c, #b4b2b2);
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.bg-dark-gradient::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent);
+    animation: rotateBackground 10s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotateBackground {
+    0%   { transform: rotate(0deg) scale(0.0); }
+    25%  { transform: rotate(0deg) scale(1.4); }
+    50%  { transform: rotate(180deg) scale(0.5); }
+    75%  { transform: rotate(0deg) scale(1.4); }
+    100% { transform: rotate(360deg) scale(0.0); }
+}
+
+/* ================================
+   Headings
+=================================== */
+.title-hero {
+    font-weight: 700;
+    font-size: 2rem;
+    animation: fadeSlide 0.7s ease-out both;
+}
+
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   Form & Select
+=================================== */
+.form-select {
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+.form-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+}
+
+
+.bg-grade-spotlight {
+    background: radial-gradient(
+        circle at top right,
+        rgba(250, 250, 250, 0.97) 5%,
+        rgb(252, 252, 252) 18%,
+        #48484b 40%,
+        #0e0e14 60%,
+        #605f5f 80%,
+        #000000 100%
+    );
+    background-size: 200% 200%;
+    animation: softPulse 20s ease-in-out infinite;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+    border-radius: 1rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.03);
+}
+
+@keyframes softPulse {
+    0%, 100% { background-position: 50% 50%; }
+    50%      { background-position: 52% 48%; }
+}
+
+
+
+/* ================================
+   Buttons
+=================================== */
+.btn-gradient {
+    position: relative;
+    display: inline-block;
+    padding: 0.9rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #969595, #11111c);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
+}
+
+.btn-gradient:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6),
+    inset 0 0 30px rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, #969595, #1a1a25);
+    transform: translateY(-2px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-gradient span {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-gradient:hover::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(120deg, rgba(200, 200, 200, 0.05) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(200, 200, 200, 0.05) 100%);
+    transform: rotate(25deg);
+    animation: diagonalShine 1.5s ease-out forwards;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes diagonalShine {
+    0%   { transform: translateX(-100%) translateY(-100%) rotate(25deg); opacity: 0; }
+    50%  { opacity: 0.8; }
+    100% { transform: translateX(100%) translateY(100%) rotate(25deg); opacity: 0; }
+}
+
+/* ================================
+   Table Styles
+=================================== */
+/* Container wrapper to simulate button-style background */
+
+/* Table Styling */
+.table-styled {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.95rem;
+    color: #e4e4e4;
+}
+
+/* Table Head */
+.table-styled thead {
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+}
+
+.table-styled th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Table Body */
+.table-styled tbody tr {
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: background-color 0.25s ease;
+    border-radius: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.table-styled tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-styled td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 640px) {
+    /* Wrapper resets for mobile */
+    .table-wrapper {
+        padding: 0;
+        background: none;
+        box-shadow: none;
+    }
+
+    /* Hide table head */
+    .table-styled thead {
+        display: none;
+    }
+
+    /* Make everything block layout */
+    .table-styled,
+    .table-styled tbody,
+    .table-styled tr,
+    .table-styled td {
+        display: block;
+        width: 100%;
+    }
+
+    .table-styled tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .table-styled tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 1rem;
+        padding: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+        inset 0 0 6px rgba(255, 255, 255, 0.03);
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+
+    .table-styled td {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        border: none;
+        position: relative;
+    }
+
+    .table-styled td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        top: 0.75rem;
+        font-weight: 600;
+        color: #1f2937;
+        text-transform: capitalize;
+        text-align: left;
+    }
+
+    .table-styled td:first-child {
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #ffffff;
+        letter-spacing: 0.05em;
+    }
+
+    .table-styled td:last-child {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #00ffcc;
+    }
+}
