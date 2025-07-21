@@ -3,11 +3,12 @@
 namespace Database\Factories;
 
 use App\Models\Course;
+use App\Models\Grade;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Grade>
+ * @extends Factory<Grade>
  */
 class GradeFactory extends Factory
 {
@@ -38,5 +39,4 @@ class GradeFactory extends Factory
             'grade' => $this->faker->numberBetween(0, 4), // failing grades: below 5
         ]);
     }
-
 }
