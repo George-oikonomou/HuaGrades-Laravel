@@ -38,4 +38,5 @@ class GradeFactory extends Factory
             'grade' => $this->faker->numberBetween(0, 4), // failing grades: below 5
         ]);
     }
+
 }
