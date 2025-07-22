@@ -6,7 +6,7 @@
     <title>@yield('title', 'Hua Grades')</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('favicon-32x32.png') }}" type="image/x-icon">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,8 +16,7 @@
 
     @stack('head')
 </head>
-<body style="background-color: black">
-
+<body>
 @include('partials.navbar')
 
 <main class="container mt-4">

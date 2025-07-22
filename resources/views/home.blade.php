@@ -3,7 +3,6 @@
 @section('title', 'Hua Grades')
 
 @push('head')
-    <!-- Optional: Inter font for a nicer default -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 @endpush
@@ -25,8 +24,6 @@
             <button id="tableButton" class="btn-gradient"><span>Table view</span></button>
             <button id="chartsButton" class="btn-gradient"><span>Charts</span></button>
         </div>
-
-        <div id="loader" class="loader d-none"></div>
     </div>
 
     <!-- Grades Table Panel -->
@@ -53,7 +50,6 @@
             const selector = document.getElementById('idSelector');
             const tableContainer = document.getElementById('gradesContainer');
             const tableBody = document.querySelector('#gradesTable tbody');
-            const loader = document.getElementById('gradesLoader');
 
             selector.addEventListener('change', function () {
                 const studentIt = this.value;

@@ -1,0 +1,41 @@
+/* Responsive Image Tweak */
+@media (max-width: 768px) {
+    .img-responsive {
+        width: 160px !important;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .table-styled {
+        font-size: 0.85rem;
+        white-space: nowrap; /* prevent wrapping */
+        table-layout: fixed;  /* force fixed layout */
+        width: 100%;
+    }
+
+    .table-styled th,
+    .table-styled td {
+        text-align: left;
+        padding: 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+
+    /* Optional: set fixed width for grade column */
+    .table-styled td:nth-child(2),
+    .table-styled th:nth-child(2) {
+        width: 4rem;
+        text-align: center;
+    }
+
+    .table-styled td::before {
+        content: none !important;
+    }
+}
