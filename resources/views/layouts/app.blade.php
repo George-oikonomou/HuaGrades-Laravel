@@ -19,9 +19,10 @@
 <body>
 @include('partials.navbar')
 
-<main class="container mt-4">
+<main class="container-fluid mt-4" style="max-width: 1600px;">
     @yield('content')
 </main>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 @stack('scripts')
 </body>

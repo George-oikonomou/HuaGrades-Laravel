@@ -21,7 +21,9 @@
         </select>
 
         <div class="d-grid gap-3 mb-3">
-            <button id="tableButton" class="btn-gradient"><span>Table view</span></button>
+            <a href="{{ route('courses.grades') }}" class="btn-gradient d-block text-center">
+                <span>Table view</span>
+            </a>
             <button id="chartsButton" class="btn-gradient"><span>Charts</span></button>
         </div>
     </div>
