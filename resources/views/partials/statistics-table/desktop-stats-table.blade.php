@@ -45,9 +45,9 @@
                     pageLength:15,lengthMenu:[15,25,50],order:[[2,'asc']],autoWidth:false,scrollX:true,
                     language:{search:"_INPUT_",searchPlaceholder:"Search courses..."},
                     columnDefs:[
-                        {width:'35%',targets:0},{width:'6%',targets:1},{width:'6%',targets:2},{width:'7%',targets:3},
-                        {width:'6%',targets:4},{width:'6%',targets:5},{width:'6%',targets:6},{width:'6%',targets:7},
-                        {width:'2%',targets:Array.from({length:11},(_,i)=>i+8)}
+                        {width:'75%',targets:0},{width:'4%',targets:1},{width:'8%',targets:2},{width:'13%',targets:3},
+                        {width:'7%',targets:4},{width:'4%',targets:5},{width:'3%',targets:6},{width:'8%',targets:7},
+                        {width:'1%',targets:Array.from({length:11},(_,i)=>i+8)}
                     ]
                 });
             });

@@ -2,7 +2,7 @@
     <div class="table-card">
         <h1 class="mb-2">Course Statistics</h1>
 
-        <div class="d-flex gap-2 mb-2">
+        <div class="d-flex justify-content-center mb-3">
             <select id="mobileSortBy" class="form-select form-select-sm" style="max-width:220px">
                 <option value="name">Course (A–Z)</option>
                 <option value="code">Code</option>
@@ -12,10 +12,6 @@
                 <option value="pass_count_num">Pass</option>
                 <option value="fail_count_num">Fail</option>
                 <option value="pass_average_num">Pass Avg</option>
-            </select>
-            <select id="mobileSortDir" class="form-select form-select-sm" style="max-width:120px">
-                <option value="asc">Asc</option>
-                <option value="desc" selected>Desc</option>
             </select>
         </div>
 

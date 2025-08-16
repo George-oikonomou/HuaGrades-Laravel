@@ -28,7 +28,8 @@
 
 /* ───────────────────── Table Styling */
 table.dataTable {
-    font-size: 0.75rem;
+    font-size: 0.70rem !important;
+    table-layout: fixed;
     border-collapse: collapse !important;
 }
 
