@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+    app:
+        build: .
+        container_name: HuaGrades
+        volumes:
+            - .:/var/www/html
+        ports:
+            - "8000:8000"
+            - "5174:5174"
+        depends_on:
+            - db
+        tty: true
+        environment:
+            MYSQL_HOST: db
+            MYSQL_PORT: 3306
+            MYSQL_DATABASE: HuaGrades-db
+            MYSQL_USER: HuaGradesUser
+            MYSQL_PASSWORD: IT2022
+
+    db:
+        image: mysql:8.0
+        container_name: HuaGrades-db
+        environment:
+            MYSQL_DATABASE: HuaGrades-db
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: HuaGradesUser
+            MYSQL_PASSWORD: IT2022
+        ports:
+            - "3310:3306"
+        volumes:
+            - db_data:/var/lib/mysql
+
+volumes:
+    db_data:
