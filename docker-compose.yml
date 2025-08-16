@@ -12,6 +12,12 @@ services:
         depends_on:
             - db
         tty: true
+        environment:
+            MYSQL_HOST: db
+            MYSQL_PORT: 3306
+            MYSQL_DATABASE: HuaGrades-db
+            MYSQL_USER: HuaGradesUser
+            MYSQL_PASSWORD: IT2022
 
     db:
         image: mysql:8.0
