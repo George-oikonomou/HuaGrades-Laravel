@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    @vite(['resources/css/custom.css', 'resources/js/app.js'])
+    @vite(['resources/css/custom.css', 'resources/js/app.js', 'resources/css/mobile.css'])
 
     @stack('head')
 </head>

@@ -21,6 +21,7 @@ body {
 .p-4  { padding: 2rem; }
 .rounded { border-radius: 1rem; }
 .clickable {cursor: pointer;}
+.hidden { display: none; }
 
 .img-responsive {
     width: 300px;
