@@ -12,16 +12,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    @vite(['resources/css/custom.css', 'resources/js/app.js'])
+    @vite(['resources/css/custom.css', 'resources/js/app.js', 'resources/css/mobile.css'])
 
     @stack('head')
 </head>
 <body>
 @include('partials.navbar')
 
-<main class="container mt-4">
+<main class="container-fluid mt-4" style="max-width: 1600px;">
     @yield('content')
 </main>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 @stack('scripts')
 </body>

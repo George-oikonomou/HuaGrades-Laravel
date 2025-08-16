@@ -1,0 +1,192 @@
+/* ───────────────────── Animated Container Background */
+.bg-darker-gradient {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(41, 48, 54, 0.45);
+    background: radial-gradient(circle at 90% 60%, rgba(24, 24, 35, 0.62), rgba(5, 5, 10, 0.9));
+}
+
+/* ───────────────────── Glass Card */
+.table-card {
+    padding: 1.2rem 1rem !important;
+    background: rgba(20, 20, 30, 0.55)!important;
+    backdrop-filter: blur(18px) saturate(180%)!important;
+    -webkit-backdrop-filter: blur(18px) saturate(180%)!important;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 6px 12px rgba(20, 32, 51, 0.3), inset 0 0 2px rgb(60, 62, 80);
+    color: #e5e7eb;
+}
+
+.table-card h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem !important;
+}
+
+/* ───────────────────── Table Styling */
+table.dataTable {
+    font-size: 0.75rem;
+    border-collapse: collapse !important;
+}
+
+table.dataTable thead th {
+    background: rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+    padding: 0.45rem 0.55rem;
+}
+
+table.dataTable tbody td {
+    padding: 0.4rem 0.55rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+table.dataTable tbody tr {
+    height: 1.8rem;
+    transition: background 0.2s ease-in-out;
+}
+
+table.dataTable tbody tr:hover {
+    background: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* ───────────────────── Filter Search Bar */
+.dataTables_filter input {
+    background-image: radial-gradient(circle at 90% 60%, rgba(24,24,35,0.62), rgba(5,5,10,0.9));
+    width: 250px;
+    margin-bottom: 1.5rem;
+}
+
+.dataTables_filter input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(51, 48, 48);
+}
+
+/*  ───────────────────── entries length filter */
+#statsTable_length select{
+    background-color: #0b0c10;
+    background-image: radial-gradient(circle at 90% 60%, rgba(24,24,35,0.62), rgba(5,5,10,0.9));
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ───────────────────── Pagination */
+.dataTables_paginate {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.dataTables_paginate .paginate_button {
+    position: relative;
+    max-height: 2.5rem;
+    margin: 0.3rem;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 0.43rem !important;
+    font-size: 0.9rem;
+    overflow : hidden;
+    transition: all 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+}
+
+.dataTables_paginate .paginate_button::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: skewX(-25deg);
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background: rgba(53, 53, 59, 0.5) !important;
+    transform: translateY(-2px) scale(1.04);
+}
+
+.dataTables_paginate .paginate_button:hover::before {
+    animation: shine 0.8s forwards;
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+    }
+    100% {
+        left: 125%;
+    }
+}
+
+.dataTables_paginate .paginate_button.current {
+    background: linear-gradient(135deg, rgba(100, 100, 110, 0.4), rgba(180, 180, 190, 0.2)) !important;
+    transform: scale(1.1);
+    pointer-events: none;
+}
+/* ───────────────────── Table Styling (desktop + mobile) */
+.table-card table {
+    font-size: 0.75rem;
+    border-collapse: collapse !important;
+    width: 100%;
+}
+
+.table-card table thead th,
+.table-card table tbody td {
+    padding: 0.45rem 0.55rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+.table-card table tbody tr {
+    transition: background 0.2s ease-in-out;
+}
+
+.table-card table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.07) !important;
+}
+
+
+@media(min-width:768px) {
+    .desktop-table,.mobile-table{display:none}
+    .desktop-table{display:block}
+}
+
+
+@media(max-width:767px){
+
+    .mobile-table{
+        display:block
+    }
+
+    #mobileStatsTable_paginate{
+        display:flex;justify-content:center;gap:.5rem;margin-top:1rem
+    }
+
+    /* mobile cell borders + alignment */
+    #mobileStatsTable th,#mobileStatsTable td{
+        text-align:center;vertical-align:middle;border-right:1px solid rgba(255,255,255,.15)!important
+    }
+    #mobileStatsTable th:last-child,#mobileStatsTable td:last-child{border-right:none!important}
+
+    #mobileSortBy.form-select,
+    #mobileSortDir.form-select {
+        background-color: #000;
+        background-image: radial-gradient(circle at 90% 60%, rgba(57, 57, 75, 0.62), rgba(25, 25, 42, 0.9));
+
+    }
+
+    #mobileSortBy.form-select option,
+    #mobileSortDir.form-select option {
+        background-image: radial-gradient(circle at 90% 60%, rgba(56, 56, 73, 0.62), rgba(28, 28, 47, 0.9));
+        background-color: #000;
+    }
+}
