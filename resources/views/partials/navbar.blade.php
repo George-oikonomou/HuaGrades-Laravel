@@ -2,13 +2,13 @@
     <div class="container-fluid">
         <a class="navbar-brand navbar-brand-custom" href="{{ url('/') }}">HuaGrades</a>
         <div class="collapse navbar-collapse">
+
             <a href="https://www.dit.hua.gr" target="_blank" rel="noopener noreferrer">
                 <img src="https://www.hua.gr/wp-content/uploads/2024/07/HUA-Logo-Blue-RGB.png"
                      alt="HUA Logo"
                      class="img-responsive clickable"
                 >
             </a>
-
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link nav-link-custom" href="{{ url('/leaderboard') }}">Leaderboard</a>
