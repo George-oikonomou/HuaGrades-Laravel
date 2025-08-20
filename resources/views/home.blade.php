@@ -21,10 +21,12 @@
         </select>
 
         <div class="d-grid gap-3 mb-3">
-            <a href="{{ route('courses.grades') }}" class="btn-gradient d-block text-center">
+            <a href="{{ route('courses.grades') }}" class="btn-gradient d-block text-center text-decoration-none">
                 <span>Table view</span>
             </a>
-            <button id="chartsButton" class="btn-gradient"><span>Charts</span></button>
+            <a href="{{ route('courses.charts') }}" class="btn-gradient d-block text-center text-decoration-none">
+                <span>Charts</span>
+            </a>
         </div>
     </div>
 
