@@ -6,11 +6,13 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/js/app.js',
                 'resources/css/custom.css',
+                'resources/css/charts.css',
                 'resources/css/mobile.css',
                 'resources/css/statistics.css',
-                'resources/css/charts.css',
+                'resources/js/app.js',
+                'resources/js/course-mobile-charts.js',
+                'resources/js/bootstrap.js',
             ],
             refresh: true,
         }),
