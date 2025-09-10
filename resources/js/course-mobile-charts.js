@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // State
     let filt = [...all];
     const semesters = Array.from(new Set(all.map(c => Number(c.semester))))
-        .filter(n => Number.isFinite(n))
+        .filter(semester => Number.isFinite(semester))
         .sort((a,b)=>a-b);
     let currentSem = Number(semSel?.value) || null; // null = All
 
