@@ -31,7 +31,10 @@ class CourseStatisticsService
     protected function computeStatistics(Course $course): array
     {
         $distribution = array_fill(0, 11, 0);
-        $total = $count = $passTotal = $passCount = 0;
+        $total = 0;
+        $count = 0;
+        $passTotal = 0;
+        $passCount = 0;
 
         foreach ($course->grades as $grade) {
             $value = (int) $grade->grade;
