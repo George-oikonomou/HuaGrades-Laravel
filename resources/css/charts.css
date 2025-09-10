@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media (min-width: 901px) {
     body {overflow:hidden;}
 }
 body {background:#000;color:#fff;}
@@ -221,9 +221,10 @@ body {background:#000;color:#fff;}
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 1.2rem;
     box-shadow: 0 30px 100px rgba(0,0,0,0.6);
-    overflow: hidden;
+
     transform-origin: top left;
 }
+
 .detail-open .detail-backdrop { opacity:1; }
 .detail-header {
     display:flex; align-items:center; justify-content:space-between;
@@ -237,6 +238,102 @@ body {background:#000;color:#fff;}
     background: rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.08); border-radius:.5rem;
 }
+.stat {
+    position: relative;
+    display: inline-block;
+    margin: 6px 12px;
+    cursor: help;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* Tooltip text */
+.stat::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 130%; /* above element */
+    left: 50%;
+    transform: translateX(-50%) translateY(15px) scale(0.95);
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    font-size: 13px;
+    white-space: nowrap;
+
+    background: rgba(26, 26, 31, 0.95);
+    border: 1px solid rgba(117, 117, 122, 0.7); /* Jarvis orange */
+    color: #757981;
+
+    opacity: 0;
+    pointer-events: none;
+
+    box-shadow: 0 0 15px rgba(47, 53, 68, 0.4),
+    inset 0 0 20px rgba(51, 67, 105, 0.15);
+
+    backdrop-filter: blur(10px);
+
+    transition: all 0.35s cubic-bezier(.25,.8,.25,1);
+    z-index: 9999; /* ensure above everything */
+    overflow: hidden;
+}
+
+/* Tooltip arrow */
+.stat::before {
+    content: '';
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(37, 43, 51, 0.42);
+    opacity: 0;
+    transition: opacity .35s;
+}
+
+/* Show on hover */
+.stat:hover::after,
+.stat:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+.stat::after,
+.stat::before {
+    opacity: 0;
+    transform: translateX(-50%) translateY(15px) scale(0.95);
+    transition: all 0.35s cubic-bezier(.25,.8,.25,1);
+    pointer-events: none;
+}
+
+/* Visible state (desktop hover or mobile .show-tooltip) */
+.stat:hover::after,
+.stat:hover::before,
+.stat.show-tooltip::after,
+.stat.show-tooltip::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+/* Scanline effect inside tooltip */
+.stat::after::before {
+    content:"";
+    position:absolute; inset:0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.06) 0px,
+        rgba(255,255,255,0.06) 1px,
+        transparent 2px
+    );
+    animation: scan 2.5s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
 .detail-chart-wrap { position:relative; height: calc(100% - 100px); padding: .75rem; }
 .detail-close {
     position:absolute; top:.5rem; right:.6rem;
@@ -253,7 +350,7 @@ body {background:#000;color:#fff;}
 /* --- MOBILE CHARTS --- */
 :root{ --pad:12px; }
 /* ── Mobile (≤767px) */
-@media (max-width: 767px){
+@media (max-width: 900px){
     :root{
         --pad:14px;
         --glass-bg: rgba(18,18,24,.78);

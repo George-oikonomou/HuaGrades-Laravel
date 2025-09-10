@@ -14,6 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // Data
     const all = JSON.parse(root.dataset.courses || "[]");
 
+    const gradeColors = [
+        "rgba(255,0,0,0.35)",     // 0 - red
+        "rgba(255,90,0,0.36)",    // 1 - reddish-orange
+        "rgba(255,160,0,0.36)",   // 2 - orange
+        "rgba(255,220,0,0.37)",   // 3 - amber / yellow-orange
+        "rgba(255,255,0,0.38)",   // 4 - pure yellow
+        "rgba(190,255,60,0.37)",  // 5 - yellow-green (closer to green)
+        "rgba(140,235,80,0.39)",  // 6 - light green
+        "rgba(100,220,90,0.39)",  // 7 - mid-green
+        "rgba(60,200,80,0.40)",   // 8 - medium green
+        "rgba(30,160,60,0.40)",   // 9 - dark green
+        "rgba(0,120,40,0.37)"     // 10 - deep green
+    ];
+
     // State
     let filt = [...all];
     const semesters = Array.from(new Set(all.map(c => Number(c.semester))))
@@ -100,12 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
             meta.textContent = `${course.code} · Sem ${course.semester}`;
             desc.textContent = course.description || "";
             statsBox.innerHTML = `
-        <span class="chip">N: ${st.total}</span>
-        <span class="chip">Mean: ${st.mean.toFixed(2)}</span>
-        <span class="chip">Median: ${st.median}</span>
-        <span class="chip">σ: ${st.stdev.toFixed(2)}</span>
-        <span class="chip">Pass ≥5: ${st.passRate.toFixed(1)}%</span>
-      `;
+              <div class="stat" data-tooltip="Total number of students">N: ${st.total}</div>
+              <div class="stat" data-tooltip="The average grade across all students">Mean: ${st.mean.toFixed(2)}</div>
+              <div class="stat" data-tooltip="The middle grade when sorted">Median: ${st.median}</div>
+              <div class="stat" data-tooltip="Standard deviation (spread of grades)">σ: ${st.stdev.toFixed(2)}</div>
+              <div class="stat" data-tooltip="Percentage of students with grade ≥5">Pass ≥5: ${st.passRate.toFixed(1)}%</div>
+            `;
+
 
             el.classList.remove("hidden");
             document.body.style.overflow="hidden";
@@ -116,8 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 data:{
                     labels: Array.from({length: course.distribution.length}, (_,i)=> i),
                     datasets:[
-                        { type:"bar", label:"Count", data: course.distribution,
-                            backgroundColor: course.distribution.map((v,i)=> i>=5 ? "rgba(80,200,120,.6)" : "rgba(255,255,255,.45)") }
+                        {
+                            type:"bar",
+                            label:"Count",
+                            data: course.distribution,
+                            backgroundColor: course.distribution.map((_,i)=> gradeColors[i] || "rgba(200,200,200,0.3)")
+                        }
                     ]
                 },
                 options:{
@@ -226,6 +245,24 @@ document.addEventListener("DOMContentLoaded", () => {
         else { const i = semesters.indexOf(currentSem); if (i<semesters.length-1) currentSem = semesters[i+1]; }
         if (semSel) semSel.value = currentSem ? String(currentSem) : "";
         updateSemUI(); apply();
+    });
+
+    document.querySelectorAll(".stat").forEach(stat => {
+        stat.addEventListener("click", (e) => {
+            // close others first
+            document.querySelectorAll(".stat").forEach(s => {
+                if(s !== stat) s.classList.remove("show-tooltip");
+            });
+            // toggle on this one
+            stat.classList.toggle("show-tooltip");
+        });
+    });
+
+    // optional: close tooltip if you tap elsewhere
+    document.addEventListener("click", (e) => {
+        if (!e.target.classList.contains("stat")) {
+            document.querySelectorAll(".stat").forEach(s => s.classList.remove("show-tooltip"));
+        }
     });
 
     // Init

@@ -50,6 +50,20 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const root    = document.getElementById("courseCharts");
+            const gradeColors = [
+                "rgba(255,0,0,0.35)",     // 0 - red
+                "rgba(255,90,0,0.36)",    // 1 - reddish-orange
+                "rgba(255,160,0,0.36)",   // 2 - orange
+                "rgba(255,220,0,0.37)",   // 3 - amber / yellow-orange
+                "rgba(255,255,0,0.38)",   // 4 - pure yellow
+                "rgba(190,255,60,0.37)",  // 5 - yellow-green (closer to green)
+                "rgba(140,235,80,0.39)",  // 6 - light green
+                "rgba(100,220,90,0.39)",  // 7 - mid-green
+                "rgba(60,200,80,0.40)",   // 8 - medium green
+                "rgba(30,160,60,0.40)",   // 9 - dark green
+                "rgba(0,120,40,0.37)"     // 10 - deep green
+            ];
+
             if (!root) return;
 
             const slider  = document.getElementById("slider");
@@ -109,12 +123,13 @@
                 descEl.textContent  = course.description || "No description available.";
                 const st = stats(course.distribution);
                 statsEl.innerHTML = `
-                    <div class="stat">Students: ${st.n}</div>
-                    <div class="stat">Mean: ${st.mean.toFixed(2)}</div>
-                    <div class="stat">Median: ${st.median}</div>
-                    <div class="stat">σ: ${st.stdev.toFixed(2)}</div>
-                    <div class="stat">Pass: ${st.passRate.toFixed(1)}%</div>
+                    <div class="stat" data-tooltip="Total number of students with grades recorded">Students: ${st.n}</div>
+                    <div class="stat" data-tooltip="The average grade across all students">Mean: ${st.mean.toFixed(2)}</div>
+                    <div class="stat" data-tooltip="The middle grade when all students are ordered">Median: ${st.median}</div>
+                    <div class="stat" data-tooltip="Standard deviation (how spread out grades are)">σ: ${st.stdev.toFixed(2)}</div>
+                    <div class="stat" data-tooltip="Percentage of students who passed (grade ≥ 5)">Pass: ${st.passRate.toFixed(1)}%</div>
                 `;
+
 
                 // FLIP animation: from card rect to centered panel
                 const rect = cardEl.getBoundingClientRect();
@@ -157,10 +172,11 @@
                                     type: "bar",
                                     label: "Count",
                                     data: course.distribution,
-                                    backgroundColor: "rgba(255,255,255,0.5)",
+                                    backgroundColor: gradeColors.slice(0, course.distribution.length),
                                     borderColor: "rgba(255,255,255,0.9)",
                                     borderWidth: 1
                                 },
+
                                 {
                                     type: "line",
                                     label: "Cumulative %",
