@@ -36,7 +36,7 @@
                     <div id="detailMeta" class="detail-meta"></div>
                     <div id="detailDescription" class="detail-description"></div>
                 </div>
-                <div id="detailStats" class="detail-stats" STYLE="margin-right: 15px"></div>
+                <div id="detailStats" class="detail-stats" style="margin-right: 15px"></div>
             </div>
             <div class="detail-chart-wrap">
                 <canvas id="detailChart"></canvas>
