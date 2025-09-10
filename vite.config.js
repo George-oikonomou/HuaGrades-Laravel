@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/css/custom.css',
                 'resources/css/mobile.css',
                 'resources/css/statistics.css',
+                'resources/css/charts.css',
             ],
             refresh: true,
         }),
