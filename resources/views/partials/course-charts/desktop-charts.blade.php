@@ -84,7 +84,10 @@
 
             const all     = @json($charts);
 
-            let filt   = [...all], page = 1, size = parseInt(pageSel.value, 10), charts = [];
+            let filt   = [...all];
+            let page   = 1;
+            let size   = parseInt(pageSel.value, 10);
+            let charts = [];
             let angle  = 0, target = 0, auto = 0.07, drag = false, lastX = 0;
 
             const opts = {
