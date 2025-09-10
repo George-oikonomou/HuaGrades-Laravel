@@ -1,6 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid">
-        <a class="navbar-brand navbar-brand-custom" href="{{ url('/') }}">HuaGrades</a>
+        <div class=" d-flex align-items-center gap-2">
+            <a href="https://www.dit.hua.gr" target="_blank" rel="noopener noreferrer" class="d-lg-none navbar-brand navbar-brand-custom">
+                <img src="https://huadev.hua.gr/wp-content/uploads/2024/04/cropped-cropped-cropped-HUA-Logo-Blue-RGB-2-1.png"
+                     alt="HUA Logo"
+                     style="height:28px; width:auto; ">
+            </a>
+            <a class="navbar-brand navbar-brand-custom" href="{{ url('/') }}">HuaGrades</a>
+        </div>
+
         <div class="collapse navbar-collapse">
 
             <a href="https://www.dit.hua.gr" target="_blank" rel="noopener noreferrer">
@@ -40,6 +48,7 @@
         </div>
     </div>
 </nav>
+
 <script>
     function showInfo() {
         const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));

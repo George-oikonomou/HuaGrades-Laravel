@@ -59,8 +59,9 @@ body {
 }
 
 .form-select option {
-    background-color: #1a1a25;
+    background-color: #0d0d13;
     color: #ffffff;
+    font-family: "Calibri Light", serif;
 }
 /* ================================
    Headings

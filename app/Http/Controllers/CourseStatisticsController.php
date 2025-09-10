@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
-use App\Models\Student;
 use App\Services\CourseStatisticsService;
-use App\Services\GradeService;
+use Illuminate\Http\Request;
+
 
 class CourseStatisticsController extends Controller
 {
@@ -18,14 +17,13 @@ class CourseStatisticsController extends Controller
 
     public function index()
     {
-        $courses = Course::select('id', 'name', 'code', 'semester', 'type')
-            ->with('grades')
-            ->orderBy('semester')
-            ->orderBy('type')
-            ->orderBy('name')
-            ->get();
-
-        $statistics = $this->service->getStatisticsForAllCourses($courses);
+        $statistics = $this->service->getStatistics();
         return view('statistics', compact('statistics'));
+    }
+
+    public function charts()
+    {
+        $charts = $this->service->getCharts();
+        return view('charts', compact('charts'));
     }
 }
